@@ -30,6 +30,11 @@ set hlsearch                    " highlight a /search. Toggle off with :noh
 filetype off                    " disable filetype detection
 syntax on                       " syntax highlighting
 
+" onedark theme vim files: https://github.com/joshdick/onedark.vim
+" requires ~.vim/colors/onedark.vim
+" requires ~.vim/autoload/onedark.vim
+colorscheme onedark
+
 " persist folds on save
 augroup remember_folds
   autocmd!
