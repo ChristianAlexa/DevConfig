@@ -29,6 +29,7 @@ set background=dark
 set hlsearch                    " highlight a /search. Toggle off with :noh
 filetype off                    " disable filetype detection
 syntax on                       " syntax highlighting
+set nowrap                      " Don't wrap lines
 
 " onedark theme vim files: https://github.com/joshdick/onedark.vim
 " requires ~.vim/colors/onedark.vim
@@ -64,6 +65,13 @@ set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 set nolist
 hi NonText ctermfg=grey guifg=grey70
 hi SpecialKey ctermfg=grey guifg=grey70
+
+" so I can go up and down wrapped lines
+map j gj
+map k gk
+
+" clear search with shift + enter
+nnoremap <S-CR> :noh<CR>
 
 " =============================================================================
 " Functions
