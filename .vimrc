@@ -5,17 +5,17 @@
 " =============================================================================
 
 " - Author: Christian Alexa
-" - This is a vim config file located: ~/.vimrc
-" - There should also be a directory located:  ~/.vim
-" - Plugins are managed with Vundle and stored here: ~/.vim/bundle
-" - Clear out your vim cache periodically: ~/.viminfo
+" - This is a vim config file: ~/.vimrc
+" - There should also be a directory:  ~/.vim
+" - Plugins are managed with Vundle: ~/.vim/bundle
+" - Periodically, clear out your vim cache: ~/.viminfo
 
 " =============================================================================
 " General Settings
 " =============================================================================
 
 set nocompatible                " use vim defaults
-set directory^=$HOME/.vim/tmp// " store backup swap files in /tmp
+set directory^=$HOME/.vim/tmp/  " store backup swap files in /tmp
 set laststatus=2                " always show the status line
 set number                      " add line numbers
 set shiftwidth=4
@@ -30,11 +30,6 @@ set hlsearch                    " highlight a /search. Toggle off with :noh
 filetype off                    " disable filetype detection
 syntax on                       " syntax highlighting
 set nowrap                      " Don't wrap lines
-
-" onedark theme vim files: https://github.com/joshdick/onedark.vim
-" requires ~.vim/colors/onedark.vim
-" requires ~.vim/autoload/onedark.vim
-colorscheme onedark
 
 " persist folds on save
 augroup remember_folds
@@ -53,25 +48,12 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Map <Leader> key to comma
 let mapleader= ','
 
-" use ,re to reload .vimrc to see changes without needing to restart terminal
-nnoremap <Leader>re :source ~/.vimrc<CR>
-
 " use ,t to add task symbol '- [ ] '
 nnoremap <Leader>t i- [ ]  <Esc>i
-
-" use ,ch to toggle whitespace and special char indicators
-nnoremap <Leader>ch :set list!<CR>
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
-set nolist
-hi NonText ctermfg=grey guifg=grey70
-hi SpecialKey ctermfg=grey guifg=grey70
 
 " so I can go up and down wrapped lines
 map j gj
 map k gk
-
-" clear search with shift + enter
-nnoremap <S-CR> :noh<CR>
 
 " =============================================================================
 " Functions
@@ -92,56 +74,60 @@ nnoremap <Leader>cc :call ToggleCC()<CR>
 
 " =============================================================================
 " Vundle - a plugin manager
-"
 " Getting Started:
 " $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/
+" Run this command in a fresh terminal window to install new plugins
 " :PluginInstall
-" =============================================================================
-
 " set resource path and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+" =============================================================================
 
 " =============================================================================
 " Nerd tree - a terminal file tree
-"
 " Getting Started:
 " $ git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/
-" =============================================================================
-
 Plugin 'scrooloose/nerdtree'
-
 let g:NERDTreeWinSize=30        " default pane width
 let NERDTreeShowHidden=1        " see hidden files
-" autocmd vimenter * NERDTree   " autoload nerdtree
-
 " Use `,ne` to toggle nerd tree on/off
 nmap <Leader>ne :NERDTreeToggle<CR>:set number<CR>
+" =============================================================================
 
 " =============================================================================
 " Plugin Smooth Scroll - less jarring <c-d> and <c-u> scroll movement
-"
 " Getting Started:
-" $ git clone https://github.com/terryma/vim-smooth-scroll.git
-" =============================================================================
-
+" $ git clone https://github.com/terryma/vim-smooth-scroll.git ~/.vim/bundle/
 Plugin 'terryma/vim-smooth-scroll'
-
 " overwrite scroll keybinds to use smooth scroll
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 20, 2)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 20, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 20, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 20, 4)<CR>
+" =============================================================================
 
 " =============================================================================
 " Vim Fireplace - REPL for Clojure development
-"
 " Getting Started:
-" $ git clone https://github.com/tpope/vim-fireplace.git
+" $ git clone https://github.com/tpope/vim-fireplace.git ~/.vim/bundle/
+Plugin 'tpope/vim-fireplace'
 " =============================================================================
 
-Plugin 'tpope/vim-fireplace'
+" =============================================================================
+" Markdown Folding - Text outlining for Vim based on Emacs Org-Mode
+" Commands:
+" zr: reduces fold level throughout the buffer
+" zR: opens all folds
+" zm: increases fold level throughout the buffer
+" zM: folds everything all the way
+" za: open a fold your cursor is on
+" zA: open a fold your cursor is on recursively
+" zc: close a fold your cursor is on
+" zC: close a fold your cursor is on recursively
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+" =============================================================================
 
 " All Plugins must be added before the following line
 call vundle#end()               " required
