@@ -99,6 +99,9 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 20, 4)<CR>
 " Getting Started:
 " $ git clone https://github.com/tpope/vim-commentary.git
 Plugin 'tpope/vim-commentary'
+" how to use:
+" Use 'shift + v' to visually select a code block
+" Use 'gc' to toggle commenting on that visual block
 
 " All Plugins must be added before the following line
 call vundle#end()               " required
