@@ -103,7 +103,14 @@ Plugin 'tpope/vim-commentary'
 " Use 'shift + v' to visually select a code block
 " Use 'gc' to toggle commenting on that visual block
 
+" (PLUGIN) vim-javascript - terminal syntax highlighting for js
+" =============================================================================
+" Getting Started:
+" $ git clone https://github.com/pangloss/vim-javascript.git
+Plugin 'pangloss/vim-javascript'
+
 " All Plugins must be added before the following line
 call vundle#end()               " required
 filetype plugin indent on       " required
+
 
