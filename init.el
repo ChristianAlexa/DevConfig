@@ -1,39 +1,18 @@
-;; File: ~/.emacs.d/init.el
-;; About: emacs config file
+;; Emacs Config File: ~/.emacs.d/init.el
 ;; Author: Christian Alexa
-;; Last update: 01/07/2020
+;; Last update: 01/11/2020
 
 ;; package manager
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
-(package-refresh-contents)
-(package-install 'use-package)
-(when (not (package-installed-p 'use-package))
-  (package-refresh-contents)
-  (package-install 'use-package))
-(require 'use-package-ensure)
-(setq use-package-always-ensure t)
 
-;; use latest package versions
-(use-package auto-compile
-  :config (auto-compile-on-load-mode))
-(setq load-prefer-newer t)
-
+;; emacs auto config - refrain from modifying this
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (evil auto-compile use-package))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+ '(package-selected-packages (quote (evil use-package))))
+(custom-set-faces)
 
-;; disable visual bell
+;; disable visual bell warning
 (setq ring-bell-function 'ignore)
 
 ;; disable menu bar
@@ -59,10 +38,6 @@
   :config
   (evil-mode 1))
 
-;; use company-mode
-;; (use-package company)
-;; (add-hook 'after-init-hook 'global-company-mode)
-
 ;; set backup directory
 (setq backup-directory-alist `(("." . "~/.emacs.d/.saves")))
 
@@ -71,6 +46,10 @@
 
 ;; add line numbers
 (global-linum-mode t)
+
+;; style org mode bullets
+(use-package org-bullets
+    :hook (org-mode . org-bullets-mode))
 
 ;; cycle status (shift + arrow)
 (setq org-todo-keywords
@@ -85,16 +64,16 @@
      "DONE"
      "ARCHIVES")))
 
-;; colorize status
+;; add color to status
 (setq org-todo-keyword-faces
-  '(("BACKLOG" . "purple")
-    ("TODO" . (:foreground "red" :weight bold))
-    ("IN PROGRESS" . "#04AEF9")
-    ("IN REVIEW" . (:foreground "#6E7A7F" :weight bold))
-    ("IN DEV" . (:foreground "#6E7A7F" :weight bold))
-    ("IN TEST" . (:foreground "#6E7A7F" :weight bold))
-    ("DEFERRED" . "red")
-    ("DELEGATED" . "darkgreen")
-    ("DONE" . "darkgreen")
-    ("ARCHIVES" . "purple")))
+  '(("BACKLOG" . "gray")
+    ("TODO" . "gray")
+    ("IN PROGRESS" . "red")
+    ("IN REVIEW" . "gray")
+    ("IN DEV" . "gray")
+    ("IN TEST" . "gray")
+    ("DEFERRED" . "gray")
+    ("DELEGATED" . "gray")
+    ("DONE" . "gray")
+    ("ARCHIVES" . "gray")))
 
