@@ -76,4 +76,3 @@
     ("DELEGATED" . "gray")
     ("DONE" . "gray")
     ("ARCHIVES" . "gray")))
-
