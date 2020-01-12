@@ -11,7 +11,7 @@ export PATH=$PATH:$GOPATH
 export PATH=$PATH:$GOROOT/bin
 
 # Launch VSCode with 'code .'
-14  export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/a    pp/bin"
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/a    pp/bin"
 
 export ZSH="/Users/christianalexa/.oh-my-zsh"
 ZSH_THEME=agnoster
