@@ -1,3 +1,3 @@
 # README
 
-This repo contains all my dotfiles.
+This repo contains my dev config files.
