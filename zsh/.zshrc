@@ -13,7 +13,7 @@ export PATH=$PATH:$GOROOT/bin
 # Launch VSCode with 'code .'
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/a    pp/bin"
 
-export ZSH="/Users/christianalexa/.oh-my-zsh"
+export ZSH="/Users/$USER/.oh-my-zsh"
 ZSH_THEME=agnoster
 
 # cd invokes ls showing all files with syntax highlighting
