@@ -9,9 +9,10 @@ export GOPATH=$HOME/go
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH
 export PATH=$PATH:$GOROOT/bin
+export PATH=$HOME/go/bin:$PATH
 
 # Launch VSCode with 'code .'
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/a    pp/bin"
+alias code='open -a Visual\ Studio\ Code'
 
 export ZSH="/Users/$USER/.oh-my-zsh"
 ZSH_THEME=agnoster
@@ -25,3 +26,4 @@ function chpwd() {
 plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
+
