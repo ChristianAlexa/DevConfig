@@ -1,6 +1,4 @@
 ;; Emacs Config File: ~/.emacs.d/init.el
-;; Author: Christian Alexa
-;; Last update: 01/11/2020
 
 ;; package manager
 (require 'package)
@@ -59,20 +57,16 @@
      "IN REVIEW"
      "IN DEV"
      "IN TEST"
-     "DEFERRED"
      "DELEGATED"
-     "DONE"
-     "ARCHIVES")))
+     "DONE")))
 
 ;; add color to status
 (setq org-todo-keyword-faces
-  '(("BACKLOG" . "gray")
-    ("TODO" . "gray")
-    ("IN PROGRESS" . "red")
-    ("IN REVIEW" . "gray")
+  '(("BACKLOG" . "purple")
+    ("TODO" . "red")
+    ("IN PROGRESS" . "blue")
+    ("IN REVIEW" . "orange")
     ("IN DEV" . "gray")
     ("IN TEST" . "gray")
-    ("DEFERRED" . "gray")
     ("DELEGATED" . "gray")
-    ("DONE" . "gray")
-    ("ARCHIVES" . "gray")))
+    ("DONE" . "dark green")))
