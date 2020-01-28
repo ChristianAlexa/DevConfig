@@ -1,6 +1,6 @@
 # ZSH Config File: ~/.zshrc
-# Author: Christian Alexa
-# Last Updated: 1/11/2020
+
+export PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
 
 DEFAULT_USER=$USER
 
@@ -10,9 +10,6 @@ export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH
 export PATH=$PATH:$GOROOT/bin
 export PATH=$HOME/go/bin:$PATH
-
-# Launch VSCode with 'code .'
-alias code='open -a Visual\ Studio\ Code'
 
 export ZSH="/Users/$USER/.oh-my-zsh"
 ZSH_THEME=agnoster
@@ -26,4 +23,3 @@ function chpwd() {
 plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
-
