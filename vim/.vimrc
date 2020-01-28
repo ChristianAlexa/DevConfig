@@ -1,9 +1,5 @@
-" Vim Config File: ~/.vimrc
-" Author: Christian Alexa
-" Plugins are managed with Vundle: ~/.vim/bundle
-" Periodically, clear out vim cache: ~/.viminfo
+" vim config file: ~/.vimrc
 
-" General Settings
 set nocompatible                " use vim defaults
 set directory^=$HOME/.vim/tmp/  " store backup swap files in /tmp
 set laststatus=2                " always show the status line
@@ -14,7 +10,7 @@ set autoindent
 set tabstop=4                   " set tab indentation amount
 set expandtab                   " uses spaces instead of tab character
 set smartindent
-set scrolloff=2                 " scroll buffer near edges of screen
+" set scrolloff=2                 " scroll buffer near edges of screen
 set background=dark
 set hlsearch                    " highlight a /search. Toggle off with :noh
 filetype off                    " disable filetype detection
@@ -31,17 +27,14 @@ augroup END
 " remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Map <Leader> key to comma
+" map <Leader> key to comma
 let mapleader= ','
 
-" Use ,t to add task checkbox symbol '- [ ] '
-nnoremap <Leader>t i- [ ] <Esc>i
-
-" Move cursor up and down wrapped lines
+" move cursor up and down wrapped lines
 map j gj
 map k gk
 
-" Use ,cc to toggle color column
+" use ,cc to toggle color column
 fun! ToggleCC()
   if &cc == ''
     " example of multi columns
@@ -54,8 +47,8 @@ endfun
 
 nnoremap <Leader>cc :call ToggleCC()<CR>
 
-" Vundle - vim plugin manager
-" Run :PluginInstall to install plugins
+" (PLUGIN MANAGER) vundle
+" $ :PluginInstall to install plugins
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
@@ -67,7 +60,7 @@ let g:NERDTreeWinSize=30        " default pane width
 let NERDTreeShowHidden=1        " see hidden files
 nmap <Leader>ne :NERDTreeToggle<CR>:set number<CR>
 
-" (PLUGIN) Smooth Scroll - less jarring <c-d> and <c-u> scroll movement
+" (PLUGIN) Smooth Scroll - <c-d> move down <c-u> move up
 Plugin 'terryma/vim-smooth-scroll'
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 20, 2)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 20, 2)<CR>
