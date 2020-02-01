@@ -28,6 +28,10 @@
 ;; disable tab indentation
 (setq-default indent-tabs-mode nil)
 
+;; set solarized light color
+(add-to-list 'default-frame-alist '(background-color . "#eee8d5"))
+(add-to-list 'default-frame-alist '(foreground-color . "#002b36"))
+
 ;; set scratch buffer message
 (setq initial-scratch-message ";; scratch buffer - edit me.")
 
