@@ -49,6 +49,9 @@
 ;; add line numbers
 (global-linum-mode t)
 
+;; hides blank lines between headings which keeps folded view compact
+(setq org-cycle-separator-lines 0)
+
 ;; style org mode bullets
 (use-package org-bullets
     :hook (org-mode . org-bullets-mode))
