@@ -28,9 +28,13 @@
 ;; disable tab indentation
 (setq-default indent-tabs-mode nil)
 
-;; set solarized light color
-(add-to-list 'default-frame-alist '(background-color . "#eee8d5"))
-(add-to-list 'default-frame-alist '(foreground-color . "#002b36"))
+;; set solarized light color theme
+;; (add-to-list 'default-frame-alist '(background-color . "#eee8d5"))
+;; (add-to-list 'default-frame-alist '(foreground-color . "#002b36"))
+
+;; set monokai color theme
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(load-theme 'monokai t)
 
 ;; set scratch buffer message
 (setq initial-scratch-message ";; scratch buffer - edit me.")
