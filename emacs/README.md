@@ -14,4 +14,4 @@ Emacs config file path `~/.emacs.d/init.el`
 
 ## Setting a theme
 
-Move monokai-theme.el to `~/.emacs.d/themes/monokai.theme.el`
+Move monokai-theme.el to `~/.emacs.d/themes/monokai-theme.el`
