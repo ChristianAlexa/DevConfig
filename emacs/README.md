@@ -12,6 +12,3 @@ I use emacs for org-mode to manage tickets and documentation.
 
 Emacs config file path `~/.emacs.d/init.el`
 
-## Setting a theme
-
-Move monokai-theme.el to `~/.emacs.d/themes/monokai-theme.el`
