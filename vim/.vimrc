@@ -74,6 +74,9 @@ Plugin 'tpope/vim-commentary'
 " (PLUGIN) vim-javascript - terminal syntax highlighting for js
 Plugin 'pangloss/vim-javascript'
 
+" (PLUGIN) lightline - useful terminal modal display
+Plugin 'itchyny/lightline.vim'
+
 " All Plugins must be added before the following line
 call vundle#end()               " required
 filetype plugin indent on       " required
