@@ -12,7 +12,7 @@ export PATH=$PATH:$GOROOT/bin
 export PATH=$HOME/go/bin:$PATH
 
 export ZSH="/Users/$USER/.oh-my-zsh"
-ZSH_THEME=agnoster
+ZSH_THEME=ROBBYRUSSELL
 
 # cd invokes ls showing all files with syntax highlighting
 function chpwd() {
