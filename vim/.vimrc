@@ -16,6 +16,7 @@ set hlsearch                    " highlight a /search. Toggle off with :noh
 filetype off                    " disable filetype detection
 syntax on                       " syntax highlighting
 set nowrap                      " Don't wrap lines
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " persist folds on save
 augroup remember_folds
