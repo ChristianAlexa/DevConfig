@@ -28,6 +28,9 @@
 ;; disable tab indentation
 (setq-default indent-tabs-mode nil)
 
+;; disable backup files (danger is my middle name)
+(setq make-backup-files nil)
+
 ;; set solarized light color theme
 (add-to-list 'default-frame-alist '(background-color . "#eee8d5"))
 (add-to-list 'default-frame-alist '(foreground-color . "#002b36"))
