@@ -26,7 +26,7 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 let mapleader=','
 
-" :PluginInstall
+" :PlugInstall
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
