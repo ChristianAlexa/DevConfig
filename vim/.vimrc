@@ -1,83 +1,105 @@
-" vim config file: ~/.vimrc
+syntax on
 
-set nocompatible                " use vim defaults
-set directory^=$HOME/.vim/tmp/  " store backup swap files in /tmp
-set laststatus=2                " always show the status line
-set number                      " add line numbers
+set guicursor=
+set noshowmatch
+set relativenumber
+set nohlsearch
+set hidden
+set noerrorbells
+set tabstop=4 softtabstop=4
 set shiftwidth=4
-set guifont=Menlo               " set font
-set autoindent
-set tabstop=4                   " set tab indentation amount
-set expandtab                   " uses spaces instead of tab character
+set expandtab
 set smartindent
-" set scrolloff=2                 " scroll buffer near edges of screen
-set background=dark
-set hlsearch                    " highlight a /search. Toggle off with :noh
-filetype off                    " disable filetype detection
-syntax on                       " syntax highlighting
-set nowrap                      " Don't wrap lines
+set nu
+set nowrap
+set smartcase
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
+set termguicolors
+set cmdheight=2
+set updatetime=50
+set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
-" persist folds on save
-augroup remember_folds
-  autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
-augroup END
+let mapleader=','
 
-" remove trailing whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
+" :PluginInstall
+call plug#begin('~/.vim/plugged')
 
-" map <Leader> key to comma
-let mapleader= ','
+Plug 'morhetz/gruvbox'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-commentary'
+Plug 'scrooloose/nerdtree'
+let g:NERDTreeWinSize=30
+let NERDTreeShowHidden=1
+nmap <Leader>ne :NERDTreeToggle<CR>:set number<CR>
+Plug 'sheerun/vim-polyglot'
+Plug 'tweekmonster/gofmt.vim'
 
-" move cursor up and down wrapped lines
-map j gj
-map k gk
+call plug#end()
 
-" use ,cc to toggle color column
+" --- vim go (polyglot) settings.
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_format_strings = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_auto_sameids = 1
+
+colorscheme gruvbox
+nnoremap <C-p> :GFiles<CR>
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 fun! ToggleCC()
-  if &cc == ''
-    " example of multi columns
-    " set cc=1,2,4,8
-    set cc=80
-  else
-    set cc=
-  endif
+    if &cc == ''
+        set cc=80
+    else
+        set cc=
+    endif
 endfun
 
 nnoremap <Leader>cc :call ToggleCC()<CR>
 
-" (PLUGIN MANAGER) vundle
-" $ :PluginInstall to install plugins
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
 
-" (PLUGIN) Nerd tree - a terminal file tree
-" Use `,ne` to toggle nerd tree on/off
-Plugin 'scrooloose/nerdtree'
-let g:NERDTreeWinSize=30        " default pane width
-let NERDTreeShowHidden=1        " see hidden files
-nmap <Leader>ne :NERDTreeToggle<CR>:set number<CR>
+func GoCoC()
+    :CocEnable
+    inoremap <buffer> <silent><expr> <TAB>
+                \ pumvisible() ? "\<C-n>" :
+                \ <SID>check_back_space() ? "\<TAB>" :
+                \ coc#refresh()
 
-" (PLUGIN) Smooth Scroll - <c-d> move down <c-u> move up
-Plugin 'terryma/vim-smooth-scroll'
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 20, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 20, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 20, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 20, 4)<CR>
+    inoremap <buffer> <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+    inoremap <buffer> <silent><expr> <C-space> coc#refresh()
 
-" (PLUGIN) commentary.vim - comment out lines
-" Use 'shift + v' to visually select and 'gc' to toggle commenting
-Plugin 'tpope/vim-commentary'
+    " GoTo code navigation.
+    nmap <buffer> <Leader>gd <Plug>(coc-definition)
+    nmap <buffer> <Leader>gy <Plug>(coc-type-definition)
+    nmap <buffer> <Leader>gi <Plug>(coc-implementation)
+    nmap <buffer> <Leader>gr <Plug>(coc-references)
+    nmap <buffer> <Leader>rr <Plug>(coc-rename)
+    nnoremap <buffer> <Leader>cr :CocRestart
+endfun
 
-" (PLUGIN) vim-javascript - terminal syntax highlighting for js
-Plugin 'pangloss/vim-javascript'
+autocmd BufWritePre * :call TrimWhitespace()
+autocmd FileType js,ts,cpp,cxx,h,hpp,c :call GoCoc()
 
-" (PLUGIN) lightline - useful terminal modal display
-Plugin 'itchyny/lightline.vim'
-
-" All Plugins must be added before the following line
-call vundle#end()               " required
-filetype plugin indent on       " required

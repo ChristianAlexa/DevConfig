@@ -1,6 +1,14 @@
 # README
 
-- Vim config file goes here: `~/.vimrc`
-- I mainly use vim in vscode which doesn't use this `~/.vimrc`
-- When I do want to launch vim in the terminal for some light editing:
-open iTerm2, `vi + enter`, `,ne`
+vim setup from 0 to god.
+
+* Install neovim: `$ brew install neovim`
+* Run neovim: `$ nvim`
+* Put init.vim here: `~/.config/nvim/init.vim`
+* Create alias for nvim in ~/.zshrc
+
+```
+alias vim="nvim"
+alias vi="nvim"
+```
+
