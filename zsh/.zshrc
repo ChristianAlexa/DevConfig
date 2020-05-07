@@ -20,6 +20,9 @@ function chpwd() {
     ls -aF -G
 }
 
+alias vim="nvim"
+alias vi="nvim"
+
 plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
