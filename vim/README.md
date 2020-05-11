@@ -1,17 +1,19 @@
 # README
 
-vim setup from 0 to god.
+0 to vim GOD.
 
 * Install neovim
+
+You'll need homebrew.
 
 ```bash
 $ brew install neovim
 ```
 
-* Auto set up env
+* Auto set up neovim env
 
 ```bash
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+$ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
 
@@ -26,6 +28,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 ```bash
 $ nvim
 ```
+
 * Install Plugins
 
 ```
@@ -38,4 +41,24 @@ $ nvim
 alias vim="nvim"
 alias vi="nvim"
 ```
+
+* Install plugins for Coc filetype support
+
+To get intellisense for go and python files, you'll need these plugins.
+
+Launch vi and run:
+```bash
+:CocInstall coc-go
+:CocInstall coc-python
+```
+
+* Setup vim orgmode for documentation
+
+I like orgmode for documentation, but emacs is trash.
+If you choose to try vim orgmode, make sure you have vim python support:
+```
+$ sudo pip3 install neovim
+```
+
+[vim orgmode documentation](https://github.com/jceb/vim-orgmode/blob/master/doc/orgguide.txt)
 
