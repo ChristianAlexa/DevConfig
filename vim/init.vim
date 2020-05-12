@@ -46,7 +46,7 @@ vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
 " plugins
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim')
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
