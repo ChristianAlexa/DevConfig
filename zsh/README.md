@@ -2,7 +2,7 @@
 
 ## Setup ZSH
 
-Check if you have zsh already.
+Check if you have zsh already
 
 ```bash
 zsh --version
