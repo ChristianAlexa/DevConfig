@@ -42,23 +42,9 @@ alias vim="nvim"
 alias vi="nvim"
 ```
 
-* Install plugins for Coc filetype support
-
-To get intellisense for go and python files, you'll need these plugins.
+* Intellisense for go
 
 Launch vi and run:
 ```bash
 :CocInstall coc-go
-:CocInstall coc-python
 ```
-
-* Setup vim orgmode for documentation
-
-I like orgmode for documentation, but emacs is trash.
-If you choose to try vim orgmode, make sure you have vim python support:
-```
-$ sudo pip3 install neovim
-```
-
-[vim orgmode documentation](https://github.com/jceb/vim-orgmode/blob/master/doc/orgguide.txt)
-
