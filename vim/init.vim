@@ -46,8 +46,11 @@ vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
 " plugins
+" :source %
+" :PlugInstall
 call plug#begin('~/.config/nvim')
 Plug 'morhetz/gruvbox'
+Plug 'lifepillar/vim-solarized8'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 Plug 'tweekmonster/gofmt.vim'
@@ -79,7 +82,10 @@ let g:go_highlight_format_strings = 1
 let g:go_highlight_variable_declarations = 1
 let g:go_auto_sameids = 1
 
-colorscheme gruvbox
+" colorscheme gruvbox
+set background=dark
+colorscheme solarized8
+
 nnoremap <C-p> :Files<CR>
 
 " move blocks of visually selected code and auto format it
