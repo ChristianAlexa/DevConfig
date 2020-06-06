@@ -82,9 +82,9 @@ let g:go_highlight_format_strings = 1
 let g:go_highlight_variable_declarations = 1
 let g:go_auto_sameids = 1
 
-" colorscheme gruvbox
-set background=dark
-colorscheme solarized8
+colorscheme gruvbox
+" set background=dark
+" colorscheme solarized8
 
 nnoremap <C-p> :Files<CR>
 
